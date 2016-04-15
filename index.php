@@ -60,9 +60,9 @@ $app->post('/', function (Request $request, Response $response) {
 $app->get('/', function (Request $request, Response $response) {
     $query = $request -> getQueryParams();
     error_log(__FILE__.":".__LINE__.":".print_r($query,true));
-    if ($query['hub.verify_token'] == getenv('FACEBOOK_VALIDATION_TOKEN')) {
+    if ($query['hub_verify_token'] == getenv('FACEBOOK_VALIDATION_TOKEN')) {
         error_log(__FILE__.":".__LINE__);
-        $response->getBody()->write($query['hub.challenge']);
+        $response->getBody()->write($query['hub_challenge']);
     }
     error_log(__FILE__.":".__LINE__);
     $response->getBody()->write('Error, wrong validation token');
