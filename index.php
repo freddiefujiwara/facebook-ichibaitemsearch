@@ -46,7 +46,7 @@ $app->post('/', function (Request $request, Response $response) {
                 $client = new GuzzleHttp\Client();
                 try {
                     $client->request('post', 
-                        'https://graph.facebook.com/v2.6/me/messages?access_token='.getenv('FACEBOOK_ACCES_TOKEN'), 
+                        'https://graph.facebook.com/v2.6/me/messages?access_token='.getenv('FACEBOOK_ACCESS_TOKEN'), 
                         $requestOptions);
                 } catch (Exception $e) {
                     error_log(__FILE__.":".__LINE__.":".$e->getMessage());
