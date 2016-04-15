@@ -1,19 +1,15 @@
 {
-  "name": "line-ichibaitemsearch",
-  "description": "LINE BOT for Rakuten Ichiba Item Search",
-  "repository": "https://github.com/freddiefujiwara/line-ichibaitemsearch.git",
+  "name": "facebook-ichibaitemsearch",
+  "description": "Facebook BOT for Rakuten Ichiba Item Search",
+  "repository": "https://github.com/freddiefujiwara/facebook-ichibaitemsearch.git",
   "logo": "http://webservice.rakuten.co.jp/bundles/rakutenwsc/img/logo_rakuten.gif",
-  "keywords": ["Ichiba","Rakuten", "LINE"],
-  "addons": ["fixie:tricycle"],
+  "keywords": ["Ichiba","Rakuten", "Facebook"],
   "env": {
-    "LINE_CHANNEL_ID": {
-      "description": "LINE Channel ID"
+    "FACEBOOK_ACCESS_TOKEN": {
+      "description": "Facebook Access Token"
     },
-    "LINE_CHANNEL_SECRET": {
-      "description": "LINE Channel Secret"
-    },
-    "LINE_CHANNEL_MID": {
-      "description": "LINE Channel MID"
+    "FACEBOOK_VALIDATION_TOKEN": {
+      "description": "Facebook Validation Token"
     },
     "RAKUTEN_WEBSERVICE_APPLICATIN_ID": {
       "description": "Rakuten_Web Service Application ID"
