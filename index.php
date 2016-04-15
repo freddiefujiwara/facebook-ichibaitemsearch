@@ -34,7 +34,7 @@ $app->post('/', function (Request $request, Response $response) {
                 $resContent['text'] .= $item['Item']['itemUrl'];
 
                 $body = json_encode([
-                        'recipient' => ['id' => [$msg['message']['sender']['id']]],
+                        'recipient' => ['id' => [$msg['sender']['id']]],
                         'message'   => ['text' => $resContent]
                     ]);
                 error_log(__FILE__.":".__LINE__.":".$body);
