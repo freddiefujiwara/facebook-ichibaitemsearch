@@ -1,0 +1,7 @@
+{
+    "require": {
+        "slim/slim": "^3.3",
+        "guzzlehttp/guzzle": "^6.2",
+        "rakuten-ws/rws-php-sdk": "^1.1"
+    }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "line-ichibaitemsearch",
+  "description": "LINE BOT for Rakuten Ichiba Item Search",
+  "repository": "https://github.com/freddiefujiwara/line-ichibaitemsearch.git",
+  "logo": "http://webservice.rakuten.co.jp/bundles/rakutenwsc/img/logo_rakuten.gif",
+  "keywords": ["Ichiba","Rakuten", "LINE"],
+  "addons": ["fixie:tricycle"],
+  "env": {
+    "LINE_CHANNEL_ID": {
+      "description": "LINE Channel ID"
+    },
+    "LINE_CHANNEL_SECRET": {
+      "description": "LINE Channel Secret"
+    },
+    "LINE_CHANNEL_MID": {
+      "description": "LINE Channel MID"
+    },
+    "RAKUTEN_WEBSERVICE_APPLICATIN_ID": {
+      "description": "Rakuten_Web Service Application ID"
+    },
+    "RAKUTEN_WEBSERVICE_AFFILIATE_ID": {
+      "description": "Rakuten_Web Service Affiliate ID"
+    }
+  }
+}
