@@ -63,6 +63,7 @@ $app->get('/', function (Request $request, Response $response) {
     if ($query['hub_verify_token'] == getenv('FACEBOOK_VALIDATION_TOKEN')) {
         error_log(__FILE__.":".__LINE__);
         $response->getBody()->write($query['hub_challenge']);
+        return;
     }
     error_log(__FILE__.":".__LINE__);
     $response->getBody()->write('Error, wrong validation token');
