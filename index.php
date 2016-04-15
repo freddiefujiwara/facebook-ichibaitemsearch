@@ -33,11 +33,13 @@ $app->post('/', function (Request $request, Response $response) {
                 $resContent['text'] .= $item['Item']['itemName']."\n";
                 $resContent['text'] .= $item['Item']['itemUrl'];
 
-                $requestOptions = [
-                    'body' => json_encode([
-                        'recipient' => ['id' => [$msg['sender']['id']]],
+                $body = json_encode([
+                        'recipient' => ['id' => [$msg['message']['sender']['id']]],
                         'message'   => ['text' => $resContent]
-                    ]),
+                    ]);
+                error_log(__FILE__.":".__LINE__.":".$body);
+                $requestOptions = [
+                    'body' => $body,
                     'headers' => [
                         'Content-Type'                 => 'application/json'
                     ]
