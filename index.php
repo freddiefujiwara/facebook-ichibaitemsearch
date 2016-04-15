@@ -6,9 +6,8 @@ use \Psr\Http\Message\ResponseInterface as Response;
 
 $app = new \Slim\App;
 $app->post('/', function (Request $request, Response $response) {
-    // message from LINE server
+    // message from Facebook server
     $body = json_decode($request->getBody(), true);
-    error_log(__FILE__.":".__LINE__.":".print_r($body,true));
 
     foreach ($body['entry'] as $entry) {
         foreach ($entry['messaging'] as $msg) {
@@ -36,7 +35,6 @@ $app->post('/', function (Request $request, Response $response) {
                         'recipient' => ['id' => $msg['sender']['id']],
                         'message'   => ['text' => $resContent]
                     ]);
-                error_log(__FILE__.":".__LINE__.":".$body);
                 $requestOptions = [
                     'body' => $body,
                     'headers' => [
@@ -60,13 +58,11 @@ $app->post('/', function (Request $request, Response $response) {
 });
 $app->get('/', function (Request $request, Response $response) {
     $query = $request -> getQueryParams();
-    error_log(__FILE__.":".__LINE__.":".print_r($query,true));
     if ($query['hub_verify_token'] == getenv('FACEBOOK_VALIDATION_TOKEN')) {
-        error_log(__FILE__.":".__LINE__);
         $response->getBody()->write($query['hub_challenge']);
         return;
     }
-    error_log(__FILE__.":".__LINE__);
+    error_log(__FILE__.":".__LINE__.'Error, wrong validation token');
     $response->getBody()->write('Error, wrong validation token');
 });
 $app->run();
