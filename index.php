@@ -28,13 +28,12 @@ $app->post('/', function (Request $request, Response $response) {
 
             //Respond message
             foreach ($rwsResponse['Items'] as $item) {
-                $resContent = $msg['content'];
-                $resContent['text'] = "";
-                $resContent['text'] .= $item['Item']['itemName']."\n";
-                $resContent['text'] .= $item['Item']['itemUrl'];
+                $resContent = "";
+                $resContent .= $item['Item']['itemName']."\n";
+                $resContent .= $item['Item']['itemUrl'];
 
                 $body = json_encode([
-                        'recipient' => ['id' => [$msg['sender']['id']]],
+                        'recipient' => ['id' => "{".$msg['sender']['id']."}"],
                         'message'   => ['text' => $resContent]
                     ]);
                 error_log(__FILE__.":".__LINE__.":".$body);
