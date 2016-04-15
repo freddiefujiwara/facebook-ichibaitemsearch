@@ -17,7 +17,7 @@ $app->post('/', function (Request $request, Response $response) {
             $rwsClient-> setApplicationId(getenv('RAKUTEN_WEBSERVICE_APPLICATIN_ID'));
             $rwsClient-> setAffiliateId(getenv('RAKUTEN_WEBSERVICE_AFFILIATE_ID'));
             $rwsResponse = $rwsClient->execute('IchibaItemSearch', array(
-                'keyword' => $msg['content']['text'], // from message text
+                'keyword' => $msg['message']['text'], // from message text
                 'hits'    => 3,                       // #of Items
                 'carrier' => 2                        // for smart phone
             ));
