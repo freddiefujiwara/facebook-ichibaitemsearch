@@ -8,7 +8,7 @@ $app = new \Slim\App;
 $app->post('/', function (Request $request, Response $response) {
     // message from LINE server
     $body = json_decode($request->getBody(), true);
-    error_log(__FILE__.":".__LINE__.":".print_r($body,true);
+    error_log(__FILE__.":".__LINE__.":".print_r($body,true));
 
     foreach ($body['entry'] as $entry) {
         foreach ($entry['messaging'] as $msg) {
@@ -59,7 +59,7 @@ $app->post('/', function (Request $request, Response $response) {
 });
 $app->get('/', function (Request $request, Response $response) {
     $query = $request -> getQueryParams();
-    error_log(__FILE__.":".__LINE__.":".print_r($query,true);
+    error_log(__FILE__.":".__LINE__.":".print_r($query,true));
     if ($query['hub.verify_token'] == getenv('FACEBOOK_VALIDATION_TOKEN')) {
         error_log(__FILE__.":".__LINE__);
         $response->getBody()->write($query['hub.challenge']);
