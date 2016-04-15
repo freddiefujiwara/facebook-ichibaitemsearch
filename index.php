@@ -66,5 +66,5 @@ $app->get('/', function (Request $request, Response $response) {
     }
     error_log(__FILE__.":".__LINE__);
     $response->getBody()->write('Error, wrong validation token');
-}
+});
 $app->run();
